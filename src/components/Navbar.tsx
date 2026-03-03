@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { auth } from "@/src/lib/firebase";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 function Navbar() {

@@ -1,5 +1,5 @@
 "use client";
-import LoginHeader from "@/components/LoginHeader";
+import LoginHeader from "@/src/components/LoginHeader";
 
 export default function Home() {
   return (

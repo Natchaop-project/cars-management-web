@@ -3,7 +3,7 @@
 import { useEffect, useState, ReactNode } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { auth } from "@/lib/firebase";
+import { auth } from "@/src/lib/firebase";
 
 export default function ProtectedLayout({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
