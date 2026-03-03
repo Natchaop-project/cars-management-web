@@ -1,6 +1,6 @@
 "use client";
-import LoginHeader from "@/components/LoginHeader";
-import { auth } from "@/lib/firebase";
+import LoginHeader from "@/src/components/LoginHeader";
+import { auth } from "@/src/lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";

@@ -1,15 +1,31 @@
 "use client";
 
-import { auth } from "@/lib/firebase";
+import { auth } from "@/src/lib/firebase";
 import { FirebaseError } from "firebase/app";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 
 export default function LoginHeader() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const handleGoogleLogin = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
 
+      const result = await signInWithPopup(auth, provider);
+
+      const user = result.user;
+
+      console.log("User:", user);
+      console.log("Name:", user.displayName);
+      console.log("Email:", user.email);
+      console.log("Photo:", user.photoURL);
+
+    } catch (error) {
+      console.error("Login error:", error);
+    }
+  };
   const handleLogin = async () => {
     try {
       setErrorMessage("");
@@ -64,6 +80,11 @@ export default function LoginHeader() {
           register
         </a>
       </div>
+      <button
+        className="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer hover:bg-blue-600 duration-200"
+        onClick={handleGoogleLogin}>
+        Login with Google
+      </button>
     </div>
   );
 }

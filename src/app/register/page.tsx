@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react'
-import RegisterHeader from "@/components/RegisterHeader";
+import RegisterHeader from "@/src/components/RegisterHeader";
 
 function Register() {
   return (
