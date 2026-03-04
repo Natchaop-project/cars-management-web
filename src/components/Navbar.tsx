@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "@/src/lib/firebase";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
+import BtnSuccess from "./buttons/BtnSuccess";
 
 function Navbar() {
   const router = useRouter();
@@ -95,12 +96,7 @@ function Navbar() {
           </button>
         ) : !authLoading ? (
           <div>
-            <button
-              onClick={() => router.push("/login")}
-              className="rounded bg-blue-500 px-3 py-1 text-white hover:bg-blue-600 duration-200 cursor-pointer"
-            >
-              Login
-            </button>
+            <BtnSuccess onClick={() => router.push("/login")} message="Login" />
           </div>
         ) : null}
       </div>

@@ -8,7 +8,6 @@ function AddCars() {
 
   return (
     <div>
-      <UploadImg />
       <SelectCar />
     </div>
   )
