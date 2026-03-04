@@ -4,6 +4,7 @@ import { auth } from "@/src/lib/firebase";
 import { FirebaseError } from "firebase/app";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
+import BtnSuccess from "./buttons/BtnSuccess";
 
 export default function LoginHeader() {
   const [email, setEmail] = useState("");
@@ -66,12 +67,7 @@ export default function LoginHeader() {
       />
 
       {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
-      <button
-        className="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer hover:bg-blue-600 duration-200"
-        onClick={handleLogin}
-      >
-        Login
-      </button>
+      <BtnSuccess onClick={handleLogin} message="Login" />
       <div className="w-full text-end">
         <a
           href="/register"
@@ -80,11 +76,7 @@ export default function LoginHeader() {
           register
         </a>
       </div>
-      <button
-        className="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer hover:bg-blue-600 duration-200"
-        onClick={handleGoogleLogin}>
-        Login with Google
-      </button>
+      <BtnSuccess onClick={handleGoogleLogin} message="Login with Google" />
     </div>
   );
 }
